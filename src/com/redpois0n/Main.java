@@ -24,7 +24,7 @@ public class Main {
 			fixer = new FixMac();
 			remover = new ScannerMac();
 		} else {
-			Util.err("Unavailable OS", "This program can only run on OSX and Windows");
+			Util.err("Unavailable OS", "This program can only run on Mac OSX and Windows");
 			System.exit(0);
 		}
 		

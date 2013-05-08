@@ -14,7 +14,9 @@ public class Main {
 		return "1.1";
 	}
 
-	public static void main(String[] args) throws Exception {		
+	public static void main(String[] args) throws Exception {	
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
 		if (Util.getOS() == Util.OS_WIN) {
 			fixer = new FixWin();
 			remover = new ScannerWin();
@@ -22,10 +24,10 @@ public class Main {
 			fixer = new FixMac();
 			remover = new ScannerMac();
 		} else {
+			Util.err("Unavailable OS", "This program can only run on OSX and Windows");
 			System.exit(0);
 		}
 		
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		Util.info("jRAT Remover", "Please make sure all java processes are shut down except this one");
 		Frame frame = new Frame();
 		frame.setVisible(true);

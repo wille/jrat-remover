@@ -1,9 +1,18 @@
-package com.redpois0n;
+package pro.jrat.remover;
 
 import java.awt.Desktop;
 import java.net.URI;
 
 import javax.swing.UIManager;
+
+import pro.jrat.remover.fixers.FixLinux;
+import pro.jrat.remover.fixers.FixMac;
+import pro.jrat.remover.fixers.FixWin;
+import pro.jrat.remover.fixers.Fixer;
+import pro.jrat.remover.scanners.Scanner;
+import pro.jrat.remover.scanners.ScannerLinux;
+import pro.jrat.remover.scanners.ScannerMac;
+import pro.jrat.remover.scanners.ScannerWin;
 
 public class Main {
 	

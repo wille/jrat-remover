@@ -1,4 +1,4 @@
-package com.redpois0n;
+package pro.jrat.remover.scanners;
 
 public class ScannerLinux implements Scanner {
 

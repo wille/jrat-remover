@@ -1,6 +1,9 @@
-package com.redpois0n;
+package pro.jrat.remover.fixers;
 
 import java.io.File;
+
+import pro.jrat.remover.Main;
+import pro.jrat.remover.scanners.ScannerMac;
 
 public class FixMac implements Fixer {
 

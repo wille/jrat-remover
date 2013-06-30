@@ -1,4 +1,4 @@
-package com.redpois0n;
+package pro.jrat.remover;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

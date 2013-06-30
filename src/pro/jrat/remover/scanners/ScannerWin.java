@@ -1,4 +1,4 @@
-package com.redpois0n;
+package pro.jrat.remover.scanners;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import pro.jrat.remover.Frame;
+import pro.jrat.remover.Util;
 
 public class ScannerWin implements Scanner {
 	

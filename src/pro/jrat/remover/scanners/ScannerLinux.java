@@ -48,7 +48,7 @@ public class ScannerLinux implements Scanner {
 					} else if (line.startsWith("Exec=")) {
 						path = line.split("=")[1].substring(12);
 						
-						if (path.contains("java") && path.contains(".jar")) {
+						if (path.contains("java") && path.contains("-jar")) {
 							add = true;
 						}
 					}

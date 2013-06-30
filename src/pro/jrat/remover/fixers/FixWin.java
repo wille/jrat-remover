@@ -26,16 +26,15 @@ public class FixWin implements Fixer {
 				Main.debug("Deleted: " + file.getAbsolutePath());
 				
 				String name = ScannerWin.regkeys.get(i);
-
 				
-				String regquery = "reg delete HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ /v \"" + name + "\" /f";
+				String[] regquery = new String[] { "reg", "delete", "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\", "/v", name, "/f" };
 				
 				try {
 					Runtime.getRuntime().exec(regquery);
-					Main.debug("Executed " + regquery);
+					Main.debug("Executed reg delete");
 				} catch (Exception ex) {
 					ex.printStackTrace();
-					Main.debug("Failed executing " + regquery + ": " + ex.getClass().getSimpleName() + ": " + ex.getMessage());
+					Main.debug("Failed executing reg delete: " + ex.getClass().getSimpleName() + ": " + ex.getMessage());
 				}
 			}
 		} catch (Exception ex) {

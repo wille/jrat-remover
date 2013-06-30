@@ -26,13 +26,13 @@ public class Main {
 	public static void main(String[] args) throws Exception {	
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-		if (Util.getOS() == Util.OS_WIN) {
+		if (OperatingSystem.getOperatingSystem() == OperatingSystem.WINDOWS) {
 			fixer = new FixWin();
 			remover = new ScannerWin();
-		} else if (Util.getOS() == Util.OS_MAC) {
+		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.OSX) {
 			fixer = new FixMac();
 			remover = new ScannerMac();
-		} else if (Util.getOS() == Util.OS_LINUX) {
+		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.LINUX) {
 			fixer = new FixLinux();
 			remover = new ScannerLinux();
 		} else {

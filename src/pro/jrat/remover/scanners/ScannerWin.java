@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pro.jrat.remover.Frame;
 import pro.jrat.remover.Util;
@@ -23,7 +24,7 @@ public class ScannerWin implements Scanner {
 		files.clear();
 		regkeys.clear();
 		try {
-			HashMap<String, String> reg = getRegistryEntries();
+			Map<String, String> reg = getRegistryEntries();
 			
 			for (Object obj : reg.keySet().toArray()) {
 				String str = reg.get(obj);
@@ -45,10 +46,10 @@ public class ScannerWin implements Scanner {
 		}
 	}
 	
-	private static HashMap<String, String> getRegistryEntries() throws Exception {
+	private static Map<String, String> getRegistryEntries() throws Exception {
 		HashMap<String, String> map = new HashMap<String, String>();
 		
-		Process p = Runtime.getRuntime().exec("reg query hkcu\\software\\microsoft\\windows\\currentversion\\run\\ /s");
+		Process p = Runtime.getRuntime().exec(new String[] { "reg", "query", "hkcu\\software\\microsoft\\windows\\currentversion\\run\\", "/s" });
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		String line;

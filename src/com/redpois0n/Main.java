@@ -23,8 +23,11 @@ public class Main {
 		} else if (Util.getOS() == Util.OS_MAC) {
 			fixer = new FixMac();
 			remover = new ScannerMac();
+		} else if (Util.getOS() == Util.OS_LINUX) {
+			fixer = new FixLinux();
+			remover = new ScannerLinux();
 		} else {
-			Util.err("Unavailable OS", "This program can only run on Mac OSX and Windows");
+			Util.err("Unavailable OS", "This program can only run on Mac OSX, Linux and Windows");
 			System.exit(0);
 		}
 		

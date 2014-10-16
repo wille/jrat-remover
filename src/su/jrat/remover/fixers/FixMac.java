@@ -1,9 +1,9 @@
-package pro.jrat.remover.fixers;
+package su.jrat.remover.fixers;
 
 import java.io.File;
 
-import pro.jrat.remover.Main;
-import pro.jrat.remover.scanners.ScannerMac;
+import su.jrat.remover.Main;
+import su.jrat.remover.scanners.ScannerMac;
 
 public class FixMac implements Fixer {
 

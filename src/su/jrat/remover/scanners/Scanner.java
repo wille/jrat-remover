@@ -1,4 +1,4 @@
-package pro.jrat.remover.scanners;
+package su.jrat.remover.scanners;
 
 public abstract interface Scanner {
 

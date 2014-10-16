@@ -1,4 +1,4 @@
-package pro.jrat.remover;
+package su.jrat.remover;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

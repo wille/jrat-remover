@@ -1,10 +1,10 @@
-package pro.jrat.remover.fixers;
+package su.jrat.remover.fixers;
 
 import java.io.File;
 
-import pro.jrat.remover.Main;
-import pro.jrat.remover.Util;
-import pro.jrat.remover.scanners.ScannerWin;
+import su.jrat.remover.Main;
+import su.jrat.remover.Util;
+import su.jrat.remover.scanners.ScannerWin;
 
 public class FixWin implements Fixer {
 

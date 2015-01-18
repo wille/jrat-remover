@@ -1,8 +1,5 @@
 package se.jrat.remover;
 
-import java.awt.Desktop;
-import java.net.URI;
-
 import javax.swing.UIManager;
 
 import se.jrat.remover.fixers.FixLinux;
@@ -43,11 +40,6 @@ public class Main {
 		Util.info("jRAT Remover", "Please make sure all java processes are shut down except this one");
 		Frame frame = new Frame();
 		frame.setVisible(true);
-		
-		if (Updater.isAvailable()) {
-			Util.info("jRAT Remover", "A new version is available. Proceeding to redpois0n.com to download");
-			Desktop.getDesktop().browse(new URI("http://redpois0n.com"));
-		}
 	}
 	
 	public static void debug(Object obj) {

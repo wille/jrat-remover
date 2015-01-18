@@ -29,15 +29,15 @@ public class Main {
 		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.OSX) {
 			fixer = new FixMac();
 			remover = new ScannerMac();
-		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.LINUX) {
+		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.LINUX || OperatingSystem.getOperatingSystem() == OperatingSystem.FREEBSD || OperatingSystem.getOperatingSystem() == OperatingSystem.OPENBSD || OperatingSystem.getOperatingSystem() == OperatingSystem.SOLARIS) {
 			fixer = new FixLinux();
 			remover = new ScannerLinux();
 		} else {
-			Util.err("Unavailable OS", "This program can only run on Mac OSX, Linux and Windows");
+			Utils.err("Unavailable OS", "This program can only run on Windows, Mac OS X, Linux, Solaris, FreeBSD and OpenBSD (only by XDG-compliant desktop environments)");
 			System.exit(0);
 		}
 		
-		Util.info("jRAT Remover", "Please make sure all java processes are shut down except this one");
+		Utils.info("jRAT Remover", "Please make sure to manually terminate all running Java processes before proceeding");
 		Frame frame = new Frame();
 		frame.setVisible(true);
 	}

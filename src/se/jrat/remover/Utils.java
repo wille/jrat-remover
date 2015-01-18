@@ -2,7 +2,7 @@ package se.jrat.remover;
 
 import javax.swing.JOptionPane;
 
-public class Util {
+public class Utils {
 	
 	public static boolean yesNo(String msg) {
 		return JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION;

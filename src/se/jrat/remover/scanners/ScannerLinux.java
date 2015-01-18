@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.jrat.remover.Frame;
-import se.jrat.remover.Util;
+import se.jrat.remover.Utils;
 
 public class ScannerLinux implements Scanner {
 
@@ -27,7 +27,7 @@ public class ScannerLinux implements Scanner {
 		File dir = new File(System.getProperty("user.home") + "/.config/autostart/");
 		
 		if (!dir.exists()) {
-			Util.err("jRAT Remover", "No autostart directory found");
+			Utils.err("jRAT Remover", "No autostart directory found");
 			return;
 		}
 		
@@ -70,9 +70,9 @@ public class ScannerLinux implements Scanner {
 		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
 		
 		if (Frame.instance.getModel().getRowCount() == 0) {
-			Util.info("jRAT Remover", "No results found when scanning!");
+			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
-			Util.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " servers while scanning!");
+			Utils.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " stubs while scanning!");
 		}
 	}
 }

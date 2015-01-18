@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import se.jrat.remover.Frame;
-import se.jrat.remover.Util;
+import se.jrat.remover.Utils;
 
 public class ScannerWin implements Scanner {
 	
@@ -40,9 +40,9 @@ public class ScannerWin implements Scanner {
 		}
 		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
 		if (Frame.instance.getModel().getRowCount() == 0) {
-			Util.info("jRAT Remover", "No results found when scanning!");
+			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
-			Util.err("jRAT Remover", "Found " + regkeys.size() + " servers while scanning!");
+			Utils.err("jRAT Remover", "Found " + regkeys.size() + " stubs while scanning!");
 		}
 	}
 	

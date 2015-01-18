@@ -3,7 +3,7 @@ package se.jrat.remover.fixers;
 import java.io.File;
 
 import se.jrat.remover.Main;
-import se.jrat.remover.Util;
+import se.jrat.remover.Utils;
 import se.jrat.remover.scanners.ScannerWin;
 
 public class FixWin implements Fixer {
@@ -14,7 +14,7 @@ public class FixWin implements Fixer {
 			msg += file.getAbsolutePath() + "\n";
 		}
 			
-		if (!Util.yesNo(msg)) {
+		if (!Utils.yesNo(msg)) {
 			return;
 		}
 		

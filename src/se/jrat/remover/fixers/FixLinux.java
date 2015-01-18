@@ -13,7 +13,7 @@ public class FixLinux implements Fixer {
 			File file = ScannerLinux.files.get(i);
 			File launchagent = ScannerLinux.desktopentries.get(i);
 			
-			Main.debug("Deleting Server: " + file.getAbsolutePath());
+			Main.debug("Deleting Stub: " + file.getAbsolutePath());
 			Main.debug("Deleting Desktop File: " + launchagent.getAbsolutePath());
 			
 			if (file.exists()) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.jrat.remover.Frame;
-import se.jrat.remover.Util;
+import se.jrat.remover.Utils;
 
 public class ScannerMac implements Scanner {
 
@@ -59,9 +59,9 @@ public class ScannerMac implements Scanner {
 		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
 		
 		if (Frame.instance.getModel().getRowCount() == 0) {
-			Util.info("jRAT Remover", "No results found when scanning!");
+			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
-			Util.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " servers while scanning!");
+			Utils.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " stubs while scanning!");
 		}
 	}
 

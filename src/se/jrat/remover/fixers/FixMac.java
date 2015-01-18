@@ -13,7 +13,7 @@ public class FixMac implements Fixer {
 			File file = ScannerMac.files.get(i);
 			File launchagent = ScannerMac.launchagents.get(i);
 			
-			Main.debug("Deleting Server: " + file.getAbsolutePath());
+			Main.debug("Deleting Stub: " + file.getAbsolutePath());
 			Main.debug("Deleting Launch Agent: " + launchagent.getAbsolutePath());
 			
 			if (file.exists()) {

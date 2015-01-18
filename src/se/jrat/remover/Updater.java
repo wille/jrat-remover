@@ -1,4 +1,4 @@
-package su.jrat.remover;
+package se.jrat.remover;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

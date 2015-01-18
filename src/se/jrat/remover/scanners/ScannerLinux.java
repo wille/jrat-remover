@@ -1,4 +1,4 @@
-package su.jrat.remover.scanners;
+package se.jrat.remover.scanners;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import su.jrat.remover.Frame;
-import su.jrat.remover.Util;
+import se.jrat.remover.Frame;
+import se.jrat.remover.Util;
 
 public class ScannerLinux implements Scanner {
 

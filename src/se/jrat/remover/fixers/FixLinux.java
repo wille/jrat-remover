@@ -1,9 +1,9 @@
-package su.jrat.remover.fixers;
+package se.jrat.remover.fixers;
 
 import java.io.File;
 
-import su.jrat.remover.Main;
-import su.jrat.remover.scanners.ScannerLinux;
+import se.jrat.remover.Main;
+import se.jrat.remover.scanners.ScannerLinux;
 
 public class FixLinux implements Fixer {
 

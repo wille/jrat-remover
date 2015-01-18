@@ -1,18 +1,18 @@
-package su.jrat.remover;
+package se.jrat.remover;
 
 import java.awt.Desktop;
 import java.net.URI;
 
 import javax.swing.UIManager;
 
-import su.jrat.remover.fixers.FixLinux;
-import su.jrat.remover.fixers.FixMac;
-import su.jrat.remover.fixers.FixWin;
-import su.jrat.remover.fixers.Fixer;
-import su.jrat.remover.scanners.Scanner;
-import su.jrat.remover.scanners.ScannerLinux;
-import su.jrat.remover.scanners.ScannerMac;
-import su.jrat.remover.scanners.ScannerWin;
+import se.jrat.remover.fixers.FixLinux;
+import se.jrat.remover.fixers.FixMac;
+import se.jrat.remover.fixers.FixWin;
+import se.jrat.remover.fixers.Fixer;
+import se.jrat.remover.scanners.Scanner;
+import se.jrat.remover.scanners.ScannerLinux;
+import se.jrat.remover.scanners.ScannerMac;
+import se.jrat.remover.scanners.ScannerWin;
 
 public class Main {
 	

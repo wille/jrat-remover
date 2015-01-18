@@ -1,4 +1,4 @@
-package su.jrat.remover;
+package se.jrat.remover;
 
 public enum OperatingSystem {
 

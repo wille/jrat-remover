@@ -1,4 +1,4 @@
-package su.jrat.remover.fixers;
+package se.jrat.remover.fixers;
 
 public abstract interface Fixer {
 

@@ -1,4 +1,4 @@
-package su.jrat.remover.scanners;
+package se.jrat.remover.scanners;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import su.jrat.remover.Frame;
-import su.jrat.remover.Util;
+import se.jrat.remover.Frame;
+import se.jrat.remover.Util;
 
 public class ScannerWin implements Scanner {
 	

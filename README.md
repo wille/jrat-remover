@@ -7,6 +7,7 @@ Download Remover.jar and double click it or execute it using java -jar Remover.j
 ## How to build
 
 Compile from source into an runnable JAR with [pyjar](https://github.com/redpois0n/pyjar)
+
 Needs dependency [oslib](https://github.com/redpois0n/oslib)
 
 Merge oslib/src and jrat-remover/src and put pyjar.py in the parent directory of the downloaded source and run

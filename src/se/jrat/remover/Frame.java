@@ -48,7 +48,7 @@ public class Frame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 420, 273);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
@@ -81,28 +81,12 @@ public class Frame extends JFrame {
 		});
 		btnDelete.setEnabled(false);
 		btnDelete.setIcon(new ImageIcon(Frame.class.getResource("/icons/scanner--minus.png")));
-		
-		JLabel lblHttpredpoisncom = new JLabel("http://redpois0n.com");
-		lblHttpredpoisncom.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				try {
-					Desktop.getDesktop().browse(new URI("http://redpois0n.com"));
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-			}
-		});
-		lblHttpredpoisncom.setForeground(Color.BLUE);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblHttpredpoisncom)
-							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnDelete)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnScan, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE))
@@ -112,12 +96,11 @@ public class Frame extends JFrame {
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnScan)
-						.addComponent(btnDelete)
-						.addComponent(lblHttpredpoisncom))
+						.addComponent(btnDelete))
 					.addGap(7))
 		);
 		contentPane.setLayout(gl_contentPane);

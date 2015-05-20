@@ -34,9 +34,6 @@ public class Main {
 		} else if (OperatingSystem.getOperatingSystem().isUnix()) {
 			fixer = new FixLinux();
 			remover = new ScannerLinux();
-		} else {
-			Utils.err("Unavailable OS", "This program can only run on Windows, Mac OS X, Linux, Solaris, FreeBSD and OpenBSD (only by XDG-compliant desktop environments)");
-			System.exit(0);
 		}
 		
 		Utils.info("jRAT Remover", "Please make sure to manually terminate all running Java processes before proceeding");

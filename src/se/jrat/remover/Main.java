@@ -11,6 +11,8 @@ import se.jrat.remover.scanners.ScannerLinux;
 import se.jrat.remover.scanners.ScannerMac;
 import se.jrat.remover.scanners.ScannerWin;
 
+import com.redpois0n.oslib.OperatingSystem;
+
 public class Main {
 	
 	public static Fixer fixer;
@@ -23,13 +25,13 @@ public class Main {
 	public static void main(String[] args) throws Exception {	
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-		if (OperatingSystem.getOperatingSystem() == OperatingSystem.WINDOWS) {
+		if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.WINDOWS) {
 			fixer = new FixWin();
 			remover = new ScannerWin();
-		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.OSX) {
+		} else if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.OSX) {
 			fixer = new FixMac();
 			remover = new ScannerMac();
-		} else if (OperatingSystem.getOperatingSystem() == OperatingSystem.LINUX || OperatingSystem.getOperatingSystem() == OperatingSystem.FREEBSD || OperatingSystem.getOperatingSystem() == OperatingSystem.OPENBSD || OperatingSystem.getOperatingSystem() == OperatingSystem.SOLARIS) {
+		} else if (OperatingSystem.getOperatingSystem().isUnix()) {
 			fixer = new FixLinux();
 			remover = new ScannerLinux();
 		} else {

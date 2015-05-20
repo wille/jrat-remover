@@ -8,7 +8,7 @@ import se.jrat.remover.scanners.ScannerLinux;
 public class FixLinux implements Fixer {
 
 	@Override
-	public void fix() {
+	public void perform(boolean dryrun) {
 		for (int i = 0; i < ScannerLinux.files.size() && i < ScannerLinux.desktopentries.size(); i++) {
 			File file = ScannerLinux.files.get(i);
 			File launchagent = ScannerLinux.desktopentries.get(i);

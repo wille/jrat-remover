@@ -8,7 +8,7 @@ import se.jrat.remover.scanners.ScannerWin;
 
 public class FixWin implements Fixer {
 
-	public void fix() {
+	public void perform(boolean dryrun) {
 		String msg = "Are you sure you want to delete these jRAT servers and the registry keys?\n\n";
 		for (File file : ScannerWin.files) {
 			msg += file.getAbsolutePath() + "\n";

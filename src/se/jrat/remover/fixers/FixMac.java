@@ -8,7 +8,7 @@ import se.jrat.remover.scanners.ScannerMac;
 public class FixMac implements Fixer {
 
 	@Override
-	public void fix() {
+	public void perform(boolean dryrun) {
 		for (int i = 0; i < ScannerMac.files.size() && i < ScannerMac.launchagents.size(); i++) {
 			File file = ScannerMac.files.get(i);
 			File launchagent = ScannerMac.launchagents.get(i);

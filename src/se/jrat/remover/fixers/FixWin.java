@@ -13,12 +13,12 @@ import se.jrat.remover.Main;
 import se.jrat.remover.Utils;
 
 public class FixWin extends Fixer {
-	
+
+	private static final String REGISTRY_LOCATION = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\";
+
 	public FixWin(Frame frame) {
 		super(frame);
 	}
-
-	private static final String REGISTRY_LOCATION = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\";
 
 	public void perform(boolean dryrun) {
 		while (Frame.instance.getModel().getRowCount() > 0) {

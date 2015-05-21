@@ -25,8 +25,6 @@ import java.net.URI;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
-
-	public static Frame instance;
 	
 	private JPanel contentPane;
 	private final JScrollPane scrollPane = new JScrollPane();
@@ -43,7 +41,6 @@ public class Frame extends JFrame {
 
 	public Frame() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Frame.class.getResource("/icons/icon.png")));
-		instance = this;
 		setTitle("jRAT Remover - " + Main.getVersion());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 420, 273);

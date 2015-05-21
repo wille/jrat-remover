@@ -22,8 +22,8 @@ public class FixMac extends Fixer {
 		List<File> files = new ArrayList<File>();
 		List<File> launchagents = new ArrayList<File>();
 		
-		while (Frame.instance.getModel().getRowCount() > 0) {
-			Frame.instance.getModel().removeRow(0);
+		while (frame.getModel().getRowCount() > 0) {
+			frame.getModel().removeRow(0);
 		}
 		
 		File dir = new File(System.getProperty("user.home") + "/Library/LaunchAgents/");
@@ -52,19 +52,19 @@ public class FixMac extends Fixer {
 				if (add && path != null) {
 					files.add(new File(path));
 					launchagents.add(file);
-					Frame.instance.getModel().addRow(new Object[] { file.getName(), path });
+					frame.getModel().addRow(new Object[] { file.getName(), path });
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
 		
-		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
+		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
 		
-		if (Frame.instance.getModel().getRowCount() == 0) {
+		if (frame.getModel().getRowCount() == 0) {
 			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
-			Utils.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " stubs while scanning!");
+			Utils.err("jRAT Remover", "Found " + frame.getModel().getRowCount() + " stubs while scanning!");
 		}
 		
 		if (!dryrun) {

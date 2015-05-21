@@ -58,19 +58,19 @@ public class FixLinux extends Fixer {
 				if (add && path != null && name != null) {
 					files.add(new File(path));
 					desktopentries.add(file);
-					Frame.instance.getModel().addRow(new Object[] { name, path });
+					frame.getModel().addRow(new Object[] { name, path });
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
 		
-		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
+		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
 		
-		if (Frame.instance.getModel().getRowCount() == 0) {
+		if (frame.getModel().getRowCount() == 0) {
 			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
-			Utils.err("jRAT Remover", "Found " + Frame.instance.getModel().getRowCount() + " stubs while scanning!");
+			Utils.err("jRAT Remover", "Found " + frame.getModel().getRowCount() + " stubs while scanning!");
 		}
 		
 		if (!dryrun) {

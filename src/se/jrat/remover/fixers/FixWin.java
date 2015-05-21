@@ -21,8 +21,8 @@ public class FixWin extends Fixer {
 	}
 
 	public void perform(boolean dryrun) {
-		while (Frame.instance.getModel().getRowCount() > 0) {
-			Frame.instance.getModel().removeRow(0);
+		while (frame.getModel().getRowCount() > 0) {
+			frame.getModel().removeRow(0);
 		}
 		List<File> files = new ArrayList<File>();
 		List<String> regkeys = new ArrayList<String>();
@@ -34,7 +34,7 @@ public class FixWin extends Fixer {
 				if (value.toLowerCase().contains("java") && value.toLowerCase().contains("bin") && value.toLowerCase().contains("-jar")) {
 					File file = new File(value.substring(value.toLowerCase().lastIndexOf("-jar \"") + 6, value.length() - 1));
 					files.add(file);
-					Frame.instance.getModel().addRow(new Object[] { key, value });
+					frame.getModel().addRow(new Object[] { key, value });
 					regkeys.add(key.toString());
 				}
 			}	
@@ -42,8 +42,8 @@ public class FixWin extends Fixer {
 			ex.printStackTrace();
 		}
 		
-		Frame.instance.getFixButton().setEnabled(Frame.instance.getModel().getRowCount() > 0);
-		if (Frame.instance.getModel().getRowCount() == 0) {
+		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
+		if (frame.getModel().getRowCount() == 0) {
 			Utils.info("jRAT Remover", "No results found when scanning!");
 		} else {
 			Utils.err("jRAT Remover", "Found " + regkeys.size() + " stubs while scanning!");

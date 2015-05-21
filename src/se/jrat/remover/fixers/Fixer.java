@@ -1,6 +1,14 @@
 package se.jrat.remover.fixers;
 
-public abstract interface Fixer {
+import se.jrat.remover.Frame;
+
+public abstract class Fixer {
+	
+	protected Frame frame;
+	
+	public Fixer(Frame frame) {
+		this.frame = frame;
+	}
 
 	/**
 	 * 

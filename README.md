@@ -19,16 +19,16 @@ Removes this JAR and plist file when removing.
 
 Checks ```~/.config/autostart/``` for desktop entries that is made for running a JAR and displays it as possible detection.
 
+## Dependencies
+
+- [oslib](https://github.com/redpois0n/oslib)
+
 ## How to build
 
 Compile from source into an runnable JAR with [pyjar](https://github.com/redpois0n/pyjar)
 
-Needs dependency [oslib](https://github.com/redpois0n/oslib)
-
-Merge oslib/src and jrat-remover/src and put pyjar.py in the parent directory of the downloaded source and run
-
 ```
-python pyjar.py [--jdk /path/to/jdk/bin/] --input src --output remover.jar --mainclass se.jrat.remover.Main
+python pyjar.py [--jdk /path/to/jdk/bin/] --input src --classpath oslib.jar --output remover.jar --mainclass se.jrat.remover.Main
 ```
 
 *--jdk argument is only needed if javac isn't in your __$PATH__*

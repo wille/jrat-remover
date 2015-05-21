@@ -11,6 +11,8 @@ import com.redpois0n.oslib.OperatingSystem;
 
 public class Main {
 	
+	public static Remover remover;
+	
 	public static final String getVersion() {
 		return "1.2";
 	}
@@ -20,14 +22,12 @@ public class Main {
 
 		Frame frame = new Frame();
 		
-		Remover fixer;
-
 		if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.WINDOWS) {
-			fixer = new WindowsRemover(frame);
+			remover = new WindowsRemover(frame);
 		} else if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.OSX) {
-			fixer = new OSXRemover(frame);
+			remover = new OSXRemover(frame);
 		} else if (OperatingSystem.getOperatingSystem().isUnix()) {
-			fixer = new UnixRemover(frame);
+			remover = new UnixRemover(frame);
 		}
 		
 		Utils.info("jRAT Remover", "Please make sure to manually terminate all running Java processes before proceeding");

@@ -66,14 +66,14 @@ public class Frame extends JFrame {
 		btnScan.setIcon(new ImageIcon(Frame.class.getResource("/icons/scanner--arrow.png")));
 		btnScan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.fixer.perform(true);
+				Main.remover.perform(true);
 			}
 		});
 		
 		btnDelete = new JButton("Delete instances");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.fixer.perform(false);
+				Main.remover.perform(false);
 			}
 		});
 		btnDelete.setEnabled(false);

@@ -1,4 +1,4 @@
-package se.jrat.remover.fixers;
+package se.jrat.remover.removers;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,11 +12,14 @@ import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
 import se.jrat.remover.Utils;
 
-public class FixWin extends Fixer {
+/**
+ * Windows Remover
+ */
+public class WindowsRemover extends Remover {
 
 	private static final String REGISTRY_LOCATION = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\";
 
-	public FixWin(Frame frame) {
+	public WindowsRemover(Frame frame) {
 		super(frame);
 	}
 

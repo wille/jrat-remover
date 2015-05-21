@@ -1,12 +1,12 @@
-package se.jrat.remover.fixers;
+package se.jrat.remover.removers;
 
 import se.jrat.remover.Frame;
 
-public abstract class Fixer {
+public abstract class Remover {
 	
 	protected Frame frame;
 	
-	public Fixer(Frame frame) {
+	public Remover(Frame frame) {
 		this.frame = frame;
 	}
 

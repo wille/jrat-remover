@@ -1,4 +1,4 @@
-package se.jrat.remover.fixers;
+package se.jrat.remover.removers;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,28 +11,29 @@ import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
 import se.jrat.remover.Utils;
 
-public class FixLinux extends Fixer {
+/**
+ * OSX Remover
+ */
+public class OSXRemover extends Remover {
 
-	public FixLinux(Frame frame) {
+	public OSXRemover(Frame frame) {
 		super(frame);
 	}
 
 	@Override
 	public void perform(boolean dryrun) {
 		List<File> files = new ArrayList<File>();
-		List<File> desktopentries = new ArrayList<File>();
+		List<File> launchagents = new ArrayList<File>();
 		
-		File dir = new File(System.getProperty("user.home") + "/.config/autostart/");
-		
-		if (!dir.exists()) {
-			Utils.err("jRAT Remover", "No autostart directory found");
-			return;
+		while (frame.getModel().getRowCount() > 0) {
+			frame.getModel().removeRow(0);
 		}
+		
+		File dir = new File(System.getProperty("user.home") + "/Library/LaunchAgents/");
 		
 		for (File file : dir.listFiles()) {
 			try {
 				boolean add = false;
-				String name = null;
 				String path = null;
 				
 				BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
@@ -40,25 +41,21 @@ public class FixLinux extends Fixer {
 				
 				while ((line = reader.readLine()) != null) {
 					line = line.trim();
+					if (line.contains("<string>-jar</string>") || line.startsWith("<string>" + System.getProperty("java.home").replace("%20", " "))) {
+						add = true;
+					}
 					
-					if (line.startsWith("Name=")) {
-						name = line.split("=")[1];
-					} else if (line.startsWith("Exec=")) {
-						String command = line.split("=")[1];
-						path = command.substring(12);
-						
-						if (command.contains("java") && command.contains("-jar")) {
-							add = true;
-						}
+					if (line.startsWith("<string>")) {
+						path = line.replace("<string>", "").replace("</string>", "");
 					}
 				}
 				
 				reader.close();
 				
-				if (add && path != null && name != null) {
+				if (add && path != null) {
 					files.add(new File(path));
-					desktopentries.add(file);
-					frame.getModel().addRow(new Object[] { name, path });
+					launchagents.add(file);
+					frame.getModel().addRow(new Object[] { file.getName(), path });
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -74,17 +71,16 @@ public class FixLinux extends Fixer {
 		}
 		
 		if (!dryrun) {
-			for (int i = 0; i < files.size() && i < desktopentries.size(); i++) {
+			for (int i = 0; i < files.size() && i < launchagents.size(); i++) {
 				File file = files.get(i);
-				File launchagent = desktopentries.get(i);
+				File launchagent = launchagents.get(i);
 				
 				Main.debug("Deleting Stub: " + file.getAbsolutePath());
-				Main.debug("Deleting Desktop File: " + launchagent.getAbsolutePath());
+				Main.debug("Deleting Launch Agent: " + launchagent.getAbsolutePath());
 				
 				if (file.exists()) {
 					file.delete();
 				}
-				
 				if (launchagent.exists()) {
 					launchagent.delete();
 				}

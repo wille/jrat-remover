@@ -2,10 +2,10 @@ package se.jrat.remover;
 
 import javax.swing.UIManager;
 
-import se.jrat.remover.fixers.FixLinux;
-import se.jrat.remover.fixers.FixMac;
-import se.jrat.remover.fixers.FixWin;
-import se.jrat.remover.fixers.Fixer;
+import se.jrat.remover.removers.UnixRemover;
+import se.jrat.remover.removers.OSXRemover;
+import se.jrat.remover.removers.WindowsRemover;
+import se.jrat.remover.removers.Remover;
 
 import com.redpois0n.oslib.OperatingSystem;
 
@@ -20,14 +20,14 @@ public class Main {
 
 		Frame frame = new Frame();
 		
-		Fixer fixer;
+		Remover fixer;
 
 		if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.WINDOWS) {
-			fixer = new FixWin(frame);
+			fixer = new WindowsRemover(frame);
 		} else if (OperatingSystem.getOperatingSystem().getType() == OperatingSystem.OSX) {
-			fixer = new FixMac(frame);
+			fixer = new OSXRemover(frame);
 		} else if (OperatingSystem.getOperatingSystem().isUnix()) {
-			fixer = new FixLinux(frame);
+			fixer = new UnixRemover(frame);
 		}
 		
 		Utils.info("jRAT Remover", "Please make sure to manually terminate all running Java processes before proceeding");

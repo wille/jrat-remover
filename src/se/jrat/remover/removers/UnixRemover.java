@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import se.jrat.remover.Detection;
 import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
 import se.jrat.remover.Utils;
@@ -21,7 +22,8 @@ public class UnixRemover extends Remover {
 	}
 
 	@Override
-	public void perform(boolean dryrun) {
+	public List<Detection> perform(boolean dryrun) {
+		List<Detection> detections = new ArrayList<Detection>();
 		List<File> files = new ArrayList<File>();
 		List<File> desktopentries = new ArrayList<File>();
 		
@@ -29,7 +31,7 @@ public class UnixRemover extends Remover {
 		
 		if (!dir.exists()) {
 			Utils.err("jRAT Remover", "No autostart directory found");
-			return;
+			return null;
 		}
 		
 		for (File file : dir.listFiles()) {
@@ -61,19 +63,11 @@ public class UnixRemover extends Remover {
 				if (add && path != null && name != null) {
 					files.add(new File(path));
 					desktopentries.add(file);
-					frame.getModel().addRow(new Object[] { name, path });
+					detections.add(new Detection(name, path));
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-		}
-		
-		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
-		
-		if (frame.getModel().getRowCount() == 0) {
-			Utils.info("jRAT Remover", "No results found when scanning!");
-		} else {
-			Utils.err("jRAT Remover", "Found " + frame.getModel().getRowCount() + " stubs while scanning!");
 		}
 		
 		if (!dryrun) {
@@ -93,6 +87,8 @@ public class UnixRemover extends Remover {
 				}
 			}
 		}
+		
+		return detections;
 	}
 
 }

@@ -36,7 +36,7 @@ public class WindowsRemover extends Remover {
 				if (value.toLowerCase().contains("java") && value.toLowerCase().contains("bin") && value.toLowerCase().contains("-jar")) {
 					File file = new File(value.substring(value.toLowerCase().lastIndexOf("-jar \"") + 6, value.length() - 1));
 					files.add(file);
-					detections.add(new Detection(key.toString(), value));
+					detections.add(new Detection(key.toString(), file.getAbsolutePath()));
 					regkeys.add(key.toString());
 				}
 			}	

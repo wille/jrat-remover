@@ -22,6 +22,7 @@ Checks ```~/.config/autostart/``` for desktop entries that is made for running a
 ## Dependencies
 
 - [oslib](https://github.com/redpois0n/oslib)
+- [iconlib](https://github.com/redpois0n/iconlib)
 
 ## How to build
 

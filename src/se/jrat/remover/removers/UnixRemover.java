@@ -47,8 +47,7 @@ public class UnixRemover extends Remover {
 					if (line.startsWith("Name=")) {
 						name = line.split("=")[1];
 					} else if (line.startsWith("Exec=")) {
-						String command = line.split("=")[1];
-						path = command.substring(12);
+						String command = line.substring(line.indexOf("=") + 1, line.length());
 						
 						if (command.contains("java") && command.contains("-jar")) {
 							add = true;

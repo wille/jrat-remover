@@ -11,7 +11,6 @@ import java.util.Map;
 import se.jrat.remover.Detection;
 import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
-import se.jrat.remover.Utils;
 
 /**
  * Windows Remover
@@ -46,15 +45,6 @@ public class WindowsRemover extends Remover {
 		}
 		
 		if (!dryrun) {
-			String msg = "Are you sure you want to delete these jRAT servers and the registry keys?\n\n";
-			for (File file : files) {
-				msg += file.getAbsolutePath() + "\n";
-			}
-				
-			if (!Utils.yesNo(msg)) {
-				return;
-			}
-			
 			try {
 				for (int i = 0; i < files.size() && i < regkeys.size(); i++) {
 					File file = files.get(i);

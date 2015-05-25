@@ -1,6 +1,5 @@
 package se.jrat.remover;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Frame extends JFrame {
 	}
 
 	public Frame() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Frame.class.getResource("/icons/icon.png")));
+		setIconImages(Utils.getIcons());
 		setTitle("jRAT Remover - " + Main.getVersion());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 420, 273);

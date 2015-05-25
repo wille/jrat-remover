@@ -1,5 +1,11 @@
 package se.jrat.remover;
 
+import iconlib.IconUtils;
+
+import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class Utils {
@@ -14,5 +20,13 @@ public class Utils {
 	
 	public static void info(String title, String msg) {
 		JOptionPane.showMessageDialog(null, msg, title, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public static List<Image> getIcons() {
+		List<Image> list = new ArrayList<Image>();
+		list.add(IconUtils.getIcon("icon-128x128").getImage());
+		list.add(IconUtils.getIcon("icon-64x64").getImage());
+		list.add(IconUtils.getIcon("icon-16x16").getImage());
+		return list;
 	}
 }

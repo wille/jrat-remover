@@ -60,9 +60,14 @@ public class UnixRemover extends Remover {
 				
 				reader.close();
 				
-				if (add && path != null && name != null) {
+				if (add && path != null) {
 					files.add(new File(path));
 					desktopentries.add(file);
+					
+					if (name == null) {
+						name = file.getName();
+					}
+					
 					detections.add(new Detection(name, path));
 				}
 			} catch (Exception ex) {

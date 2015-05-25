@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import se.jrat.remover.Detection;
 import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
-import se.jrat.remover.Utils;
 
 /**
  * OSX Remover
@@ -21,7 +21,8 @@ public class OSXRemover extends Remover {
 	}
 
 	@Override
-	public void perform(boolean dryrun) {
+	public List<Detection> perform(boolean dryrun) {
+		List<Detection> detections = new ArrayList<Detection>();
 		List<File> files = new ArrayList<File>();
 		List<File> launchagents = new ArrayList<File>();
 				
@@ -51,19 +52,11 @@ public class OSXRemover extends Remover {
 				if (add && path != null) {
 					files.add(new File(path));
 					launchagents.add(file);
-					frame.getModel().addRow(new Object[] { file.getName(), path });
+					detections.add(new Detection(file.getName(), path));
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-		}
-		
-		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
-		
-		if (frame.getModel().getRowCount() == 0) {
-			Utils.info("jRAT Remover", "No results found when scanning!");
-		} else {
-			Utils.err("jRAT Remover", "Found " + frame.getModel().getRowCount() + " stubs while scanning!");
 		}
 		
 		if (!dryrun) {
@@ -82,6 +75,8 @@ public class OSXRemover extends Remover {
 				}
 			}
 		}
+		
+		return detections;
 	}
 
 }

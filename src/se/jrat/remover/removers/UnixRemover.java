@@ -51,6 +51,7 @@ public class UnixRemover extends Remover {
 						
 						if (command.contains("java") && command.contains("-jar")) {
 							add = true;
+							path = command.replace("java", "").replace("-jar", "").replace("\"", "").replace("'", "").trim();
 						}
 					}
 				}

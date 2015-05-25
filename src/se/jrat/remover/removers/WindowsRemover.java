@@ -24,9 +24,6 @@ public class WindowsRemover extends Remover {
 	}
 
 	public void perform(boolean dryrun) {
-		while (frame.getModel().getRowCount() > 0) {
-			frame.getModel().removeRow(0);
-		}
 		List<File> files = new ArrayList<File>();
 		List<String> regkeys = new ArrayList<String>();
 		try {

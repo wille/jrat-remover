@@ -24,11 +24,7 @@ public class OSXRemover extends Remover {
 	public void perform(boolean dryrun) {
 		List<File> files = new ArrayList<File>();
 		List<File> launchagents = new ArrayList<File>();
-		
-		while (frame.getModel().getRowCount() > 0) {
-			frame.getModel().removeRow(0);
-		}
-		
+				
 		File dir = new File(System.getProperty("user.home") + "/Library/LaunchAgents/");
 		
 		for (File file : dir.listFiles()) {

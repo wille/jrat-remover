@@ -38,7 +38,7 @@ public class OSXRemover extends Remover {
 				
 				while ((line = reader.readLine()) != null) {
 					line = line.trim();
-					if (line.contains("<string>-jar</string>") || line.startsWith("<string>" + System.getProperty("java.home").replace("%20", " "))) {
+					if (line.contains("<string>-jar</string>") || line.startsWith("<string>" + System.getProperty("java.home"))) {
 						add = true;
 					}
 					

@@ -113,10 +113,16 @@ public class Frame extends JFrame {
 		}
 		
 		btnDelete.setEnabled(detections.size() > 0);
-		if (detections.size() == 0) {
-			Utils.info("jRAT Remover", "No results found when scanning!");
+
+		if (dryrun && detections.size() == 0) {
+			Utils.info("jRAT Remover", "No detections found when scanning");
+		} else if (detections.size() == 0) {
+			Utils.info("jRAT Remover", "Didn't find any detections to remove");
+		} else if (dryrun) {
+			Utils.err("jRAT Remover", "Found " + detections.size() + " stubs while scanning");
 		} else {
-			Utils.err("jRAT Remover", "Found " + detections.size() + " stubs while scanning!");
+			Utils.info("jRAT Remover", "Removed " + detections.size() + " files");
 		}
+		
 	}
 }

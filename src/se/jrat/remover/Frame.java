@@ -94,6 +94,8 @@ public class Frame extends JFrame {
 					.addGap(7))
 		);
 		contentPane.setLayout(gl_contentPane);
+		
+		setLocationRelativeTo(null);
 	}
 	
 	public void clear() {

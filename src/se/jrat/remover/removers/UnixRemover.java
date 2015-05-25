@@ -49,11 +49,11 @@ public class UnixRemover extends Remover {
 					if (line.startsWith("Name=")) {
 						name = line.split("=")[1];
 					} else if (line.startsWith("Exec=")) {
-						String command = line.substring(line.indexOf("=") + 1, line.length());
+						String command = line.substring(line.indexOf("="), line.length());
 						
 						if (command.contains("java") && command.contains("-jar")) {
 							add = true;
-							path = command.replace("java", "").replace("-jar", "").replace("\"", "").replace("'", "").trim();
+							path = command.replace("java", "").replace("-jar", "").replace("\"", "").replace("'", "").replace("=", "").trim();
 						}
 					}
 				}

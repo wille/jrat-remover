@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import se.jrat.remover.Detection;
 import se.jrat.remover.Frame;
 import se.jrat.remover.Main;
 import se.jrat.remover.Utils;
@@ -23,9 +24,11 @@ public class WindowsRemover extends Remover {
 		super(frame);
 	}
 
-	public void perform(boolean dryrun) {
+	public List<Detection> perform(boolean dryrun) {
+		List<Detection> detections = new ArrayList<Detection>();
 		List<File> files = new ArrayList<File>();
 		List<String> regkeys = new ArrayList<String>();
+		
 		try {
 			Map<String, String> reg = getRegistryEntries();
 			
@@ -34,19 +37,12 @@ public class WindowsRemover extends Remover {
 				if (value.toLowerCase().contains("java") && value.toLowerCase().contains("bin") && value.toLowerCase().contains("-jar")) {
 					File file = new File(value.substring(value.toLowerCase().lastIndexOf("-jar \"") + 6, value.length() - 1));
 					files.add(file);
-					frame.getModel().addRow(new Object[] { key, value });
+					detections.add(new Detection(key.toString(), value));
 					regkeys.add(key.toString());
 				}
 			}	
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}
-		
-		frame.getFixButton().setEnabled(frame.getModel().getRowCount() > 0);
-		if (frame.getModel().getRowCount() == 0) {
-			Utils.info("jRAT Remover", "No results found when scanning!");
-		} else {
-			Utils.err("jRAT Remover", "Found " + regkeys.size() + " stubs while scanning!");
 		}
 		
 		if (!dryrun) {
@@ -79,6 +75,8 @@ public class WindowsRemover extends Remover {
 				ex.printStackTrace();
 			}
 		}
+		
+		return detections;
 	}
 	
 	/**

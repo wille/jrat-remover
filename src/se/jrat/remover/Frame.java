@@ -1,27 +1,22 @@
 package se.jrat.remover;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
-
-import java.awt.Desktop;
-import java.awt.Toolkit;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.net.URI;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
@@ -108,10 +103,19 @@ public class Frame extends JFrame {
 	}
 	
 	public void run(boolean dryrun) {
-		Main.remover.perform(dryrun);
-	}
-
-	public JButton getFixButton() {
-		return btnDelete;
+		clear();
+		
+		List<Detection> detections = Main.remover.perform(dryrun);
+		
+		for (Detection d : detections) {
+			model.addRow(new Object[] { d.getKey(), d.getValue() });
+		}
+		
+		btnDelete.setEnabled(detections.size() > 0);
+		if (detections.size() == 0) {
+			Utils.info("jRAT Remover", "No results found when scanning!");
+		} else {
+			Utils.err("jRAT Remover", "Found " + detections.size() + " stubs while scanning!");
+		}
 	}
 }

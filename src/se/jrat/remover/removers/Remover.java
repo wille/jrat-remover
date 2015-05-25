@@ -1,5 +1,8 @@
 package se.jrat.remover.removers;
 
+import java.util.List;
+
+import se.jrat.remover.Detection;
 import se.jrat.remover.Frame;
 
 public abstract class Remover {
@@ -13,6 +16,7 @@ public abstract class Remover {
 	/**
 	 * 
 	 * @param dryrun If we should only check for detections and not clean
+	 * @return list of detections
 	 */
-	public abstract void perform(boolean dryrun);
+	public abstract List<Detection> perform(boolean dryrun);
 }

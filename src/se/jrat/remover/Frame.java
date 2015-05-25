@@ -30,10 +30,7 @@ public class Frame extends JFrame {
 	private final JScrollPane scrollPane = new JScrollPane();
 	private JTable table;
 	private JButton btnDelete;
-	
-	public DefaultTableModel getModel() {
-		return (DefaultTableModel) table.getModel();
-	}
+	private DefaultTableModel model;
 	
 	public Renderer getRenderer() {
 		return (Renderer) table.getDefaultRenderer(Object.class);
@@ -49,16 +46,17 @@ public class Frame extends JFrame {
 		setContentPane(contentPane);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
+		model = new DefaultTableModel(null, new String[] { "Name/Startup file", "Value/File" }) {
+			@Override
+			public boolean isCellEditable(int i, int i1) {
+				return false;
+			}
+		};
+		
 		table = new JTable();
 		table.setRowHeight(25);
 		table.setDefaultRenderer(Object.class, new Renderer());
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Name/Startup file", "Value/File"
-			}
-		));
+		table.setModel(model);
 		table.getColumnModel().getColumn(1).setPreferredWidth(319);
 		scrollPane.setViewportView(table);
 		
@@ -66,14 +64,14 @@ public class Frame extends JFrame {
 		btnScan.setIcon(new ImageIcon(Frame.class.getResource("/icons/scanner--arrow.png")));
 		btnScan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.remover.perform(true);
+				run(true);
 			}
 		});
 		
 		btnDelete = new JButton("Delete instances");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Main.remover.perform(false);
+				run(false);
 			}
 		});
 		btnDelete.setEnabled(false);
@@ -101,6 +99,16 @@ public class Frame extends JFrame {
 					.addGap(7))
 		);
 		contentPane.setLayout(gl_contentPane);
+	}
+	
+	public void clear() {
+		while (model.getRowCount() > 0) {
+			model.removeRow(0);
+		}
+	}
+	
+	public void run(boolean dryrun) {
+		Main.remover.perform(dryrun);
 	}
 
 	public JButton getFixButton() {

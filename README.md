@@ -15,7 +15,7 @@ Checks ```HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run``` for
 Checks ```~/Library/LaunchAgents/``` for plist files launching JAR files and displaying it as possible detection.
 Removes this JAR and plist file when removing.
 
-### Linux and *BSD
+### Linux, Solaris and *BSD
 
 Checks ```~/.config/autostart/``` for desktop entries that is made for running a JAR and displays it as possible detection.
 

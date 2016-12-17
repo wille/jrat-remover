@@ -1,4 +1,8 @@
-package se.jrat.remover.removers;
+package io.jrat.remover.removers;
+
+import io.jrat.remover.Detection;
+import io.jrat.remover.Frame;
+import io.jrat.remover.Main;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,10 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import se.jrat.remover.Detection;
-import se.jrat.remover.Frame;
-import se.jrat.remover.Main;
 
 /**
  * Windows Remover

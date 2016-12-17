@@ -1,4 +1,8 @@
-package se.jrat.remover.removers;
+package io.jrat.remover.removers;
+
+import io.jrat.remover.Detection;
+import io.jrat.remover.Frame;
+import io.jrat.remover.Main;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,10 +10,6 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import se.jrat.remover.Detection;
-import se.jrat.remover.Frame;
-import se.jrat.remover.Main;
 
 /**
  * OSX Remover

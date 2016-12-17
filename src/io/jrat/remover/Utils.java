@@ -1,4 +1,4 @@
-package se.jrat.remover;
+package io.jrat.remover;
 
 import iconlib.IconUtils;
 

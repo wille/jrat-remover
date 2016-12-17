@@ -1,4 +1,4 @@
-package se.jrat.remover;
+package io.jrat.remover;
 
 import java.awt.Component;
 

@@ -1,11 +1,11 @@
-package se.jrat.remover;
+package io.jrat.remover;
+
+import io.jrat.remover.removers.OSXRemover;
+import io.jrat.remover.removers.Remover;
+import io.jrat.remover.removers.UnixRemover;
+import io.jrat.remover.removers.WindowsRemover;
 
 import javax.swing.UIManager;
-
-import se.jrat.remover.removers.UnixRemover;
-import se.jrat.remover.removers.OSXRemover;
-import se.jrat.remover.removers.WindowsRemover;
-import se.jrat.remover.removers.Remover;
 
 import com.redpois0n.oslib.OperatingSystem;
 

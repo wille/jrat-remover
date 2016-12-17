@@ -1,4 +1,4 @@
-package se.jrat.remover;
+package io.jrat.remover;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,9 +1,9 @@
-package se.jrat.remover.removers;
+package io.jrat.remover.removers;
+
+import io.jrat.remover.Detection;
+import io.jrat.remover.Frame;
 
 import java.util.List;
-
-import se.jrat.remover.Detection;
-import se.jrat.remover.Frame;
 
 public abstract class Remover {
 	

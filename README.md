@@ -23,19 +23,3 @@ Checks ```~/.config/autostart/``` for desktop entries that is made for running a
 
 - [oslib](https://github.com/redpois0n/oslib)
 - [iconlib](https://github.com/redpois0n/iconlib)
-
-## How to build
-
-Compile from source into an runnable JAR with [pyjar](https://github.com/redpois0n/pyjar)
-
-```
-python pyjar.py [--jdk /path/to/jdk/bin/] --input src --classpath oslib.jar --output remover.jar --mainclass se.jrat.remover.Main
-```
-
-*--jdk argument is only needed if javac isn't in your __$PATH__*
-
-Then you can either double click the JAR or run it using
-
-```
-java -jar remover.jar
-```
